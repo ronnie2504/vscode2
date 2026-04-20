@@ -1,0 +1,293 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding-top: 80px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: #2c3e50;
+            padding: 15px 30px;
+            border-bottom: 3px solid #e67e22;
+            z-index: 9999;
+        }
+
+        .logo {
+            float: left;
+            color: white;
+            font-size: 26px;
+        }
+
+        .nav {
+            float: right;
+        }
+
+        .nav a {
+            float: left;
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav a:hover {
+            color: #e67e22;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .container {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        .left {
+            float: left;
+            width: 220px;
+            background: #ecf0f1;
+            padding: 20px;
+            border: 2px solid #bdc3c7;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .left h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .left ul {
+            list-style: none;
+        }
+
+        .left li {
+            margin: 10px 0;
+            padding: 8px;
+            border-bottom: 1px solid #bdc3c7;
+        }
+
+        .left a {
+            text-decoration: none;
+            color: #34495e;
+            cursor: pointer;
+        }
+
+        .left a:hover {
+            color: #e67e22;
+        }
+
+        .badge {
+            position: relative;
+            top: 15px;
+            left: -5px;
+            
+            
+            padding: 6px 12px;
+            display: inline-block;
+        }
+
+        .middle {
+            float: left;
+            width: 620px;
+            background: #ecf0f1;
+            padding: 20px;
+            border: 2px solid #bdc3c7;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .middle h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .book-show {
+            position: relative;
+        }
+
+        .book-list {
+            overflow: hidden;
+        }
+
+        .book {
+            float: left;
+            width: 170px;
+            background: white;
+            padding: 15px;
+            border: 2px solid #bdc3c7;
+            margin-right: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .book-cover {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 150px;
+            background: #95a5a6;
+        }
+
+        .tag {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            font-size: 12px;
+        }
+
+        .book h4 {
+            margin: 8px 0 5px;
+        }
+
+        .book p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .hover-box {
+            position: absolute;
+            bottom: 15px;
+            left: 10px;
+            right: 10px;
+            background: #27ae60;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            display: none;
+            cursor: pointer;
+        }
+
+        .book:hover .hover-box {
+            display: block;
+        }
+
+        .hot {
+            margin-top: 30px;
+        }
+
+        .hot h4 {
+            margin-bottom: 15px;
+        }
+
+        .hot-item {
+            float: left;
+            background: white;
+            padding: 8px 18px;
+            border: 1px solid #bdc3c7;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .hot-item:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        .new-table {
+            margin-top: 30px;
+            clear: both;
+        }
+
+        .new-table h4 {
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border: 2px solid #34495e;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #34495e;
+            color: white;
+            padding: 8px;
+            border: 1px solid #2c3e50;
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid #bdc3c7;
+        }
+
+        tr {
+            cursor: pointer;
+        }
+
+        tr:hover {
+            background: #d5dbdb;
+        }
+
+        .right {
+            float: left;
+            width: 200px;
+           
+            padding: 20px;
+            
+            margin-bottom: 20px;
+        }
+
+        .fixed-ad {
+            position: fixed;
+            right: 20px;
+            top: 120px;
+            width: 180px;
+            background: #f39c12;
+            padding: 20px;
+            border: 2px solid #e67e22;
+            color: white;
+            text-align: center;
+            height: 300px;
+        }
+
+        .fixed-ad h4 {
+            margin-bottom: 15px;
+        }
+
+        .fixed-ad p {
+            margin: 10px 0;
+        }
+
+        .fixed-ad button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .fixed-ad button:hover {
+            background: #1a252f;
+        }
+
+        .footer {
+            clear: both;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-top: 3px solid #e67e22;
+            margin-top: 20px;
+            text-align: center;
+        }
