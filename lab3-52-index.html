@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲁东大学图书会</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .header {
+            width: 100%;
+            height: 80px;
+            border-bottom: 2px solid #2c3e50;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            float: left;
+            width: 180px;
+            height: 100%;
+            line-height: 80px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .nav {
+            float: right;
+            height: 100%;
+        }
+
+        .nav li {
+            float: left;
+            list-style: none;
+            margin-left: 30px;
+            line-height: 80px;
+            position: relative;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .nav a:hover {
+            color: #e74c3c;
+            background-color: #f9f9f9;
+        }
+        .main {
+            width: 100%;
+            max-width: 1400px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 0 15px;
+        }
+        .left-bar {
+            float: left;
+            width: 220px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-right: 20px;
+            background-color: #fff;
+            position: relative;
+            top: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        .left-bar h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .left-bar a {
+            display: block;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #555;
+            padding: 8px 10px;
+            transition: all 0.3s;
+            border-radius: 4px;
+            border-left: 3px solid transparent;
+        }
+
+        .left-bar a:hover {
+            color: #e74c3c;
+            background-color: #f9f9f9;
+            border-left: 3px solid #e74c3c;
+            padding-left: 15px;
+            cursor: pointer;
+        }
+        .middle-bar {
+            float: left;
+            width: calc(100% - 560px);
+            min-width: 600px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 20px;
+            background-color: #3498db;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .hot-book {
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .book-item {
+            float: left;
+            width: 140px;
+            height: 220px;
+            border: 1px solid #eee;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .book-item img {
+            width: 100px;
+            height: 140px;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        .book-item:hover {
+            border-color: #e74c3c;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .book-item p {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        .new-book table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .new-book th, .new-book td {
+            border: 1px solid #ddd;
+            padding: 12px 8px;
+        }
+
+        .new-book th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .new-book tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .new-book tr:hover {
+            background-color: #f1f8ff;
+            cursor: pointer;
+        }
+        .jieri {
+            margin-bottom: 20px;
+        }
+
+        .jieri h1 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #9b59b6;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .jieri h1::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 20px;
+            background-color: #9b59b6;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .jieri table {
+            width: 100%;
+            border-collapse: collapse;
+            height: auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .jieri th, .jieri td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .jieri th {
+            background-color: #9b59b6;
+            color: white;
+            font-weight: bold;
+        }
+
+        .jieri td {
+            background-color: #fff;
+        }
+
+        .jieri tr:hover {
+            background-color: #f5eef8;
+            cursor: pointer;
+        }
+        .right-bar {
+            float: right;
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        .right-bar h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .promo-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ffe4b5;
+            background: linear-gradient(to right, #fff8dc, #fff3cd);
+            border-radius: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .promo-item:hover {
+            background: linear-gradient(to right, #fff3cd, #ffecb3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .promo-item p:first-child {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+
+        .promo-item p:last-child {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 1200px) {.middle-bar {
+                width: calc(100% - 540px);
+                min-width: 500px;
+            }}
+            
+        
+
+        @media (max-width: 992px) {
+            .main {
+                padding: 0 10px;
+            }
+            .left-bar {
+                width: 200px;
+            }
+            .right-bar {
+                width: 280px;
+            }
+            .middle-bar {
+                width: calc(100% - 500px);
+                min-width: 450px;
+            }
+        }
+
+     @media (max-width: 768px){.header {
+                height: auto;
+                padding: 10px;
+            }
+            .logo {
+                float: none;
+                width: 100%;
+                line-height: 50px;
+                margin-bottom: 10px;
+            }
+            .nav {
+                float: none;
+                text-align: center;
+            }
+            .nav li {
+                float: none;
+                display: inline-block;
+                margin: 0 10px;
+                line-height: 40px;
+            }
+            .left-bar, .middle-bar, .right-bar {
+                float: none;
+                width: 100%;
+                margin: 10px 0;
+            }
+            .middle-bar {
+                min-width: auto;
+            }}     
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">鲁东大学图书会</div>
+        <ul class="nav">
+            <li><a href=" ">首页</a ></li>
+            <li><a href="#">图书分类</a ></li>
+            <li><a href="#">热门推荐</a ></li>
+            <li><a href="#">关于我们</a ></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="left-bar">
+            <h3>图书分类</h3>
+            <a href="#">文学小说</a >
+            <a href="#">计算机科学</a >
+            <a href="#">经济管理</a >
+            <a href="#">人文历史</a >
+            <a href="#">科普读物</a >
+            <a href="#">艺术设计</a >
+            <a href="#">教育考试</a >
+            <a href="#">生活休闲</a >
+        </div>
+        <div class="middle-bar">
+            <div class="hot-book">
+                <h3 class="section-title">热门推荐</h3>
+                <div class="book-item">
+                    <img src="../图片/tushu7.png" alt="三国演义">
+                    <p>《三国演义》</p >
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu8.png" alt="活着">
+                    <p>《活着》</p >
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu4.png" alt="三体">
+                    <p>《三体》</p >
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu6.png" alt="水浒传">
+                    <p>《水浒传》</p >
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu9.png" alt="红楼梦">
+                    <p>《红楼梦》</p >
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu5.png" alt="西游记">
+                    <p>《西游记》</p >
+                </div>
+            </div>
+            <div class="new-book">
+                <h3 class="section-title">新书上市</h3>
+                <table>
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>优惠</th>
+                    </tr>
+                    <tr>
+                        <td>《三体》</td>
+                        <td>刘慈欣</td>
+                        <td>59.00元</td>
+                        <td>相关书籍打八折</td>
+                    </tr>
+                    <tr>
+                        <td>《三国演义》</td>
+                        <td>罗贯中</td>
+                        <td>45.00元</td>
+                        <td>买一送一</td>
+                    </tr>
+                    <tr>
+                        <td>《水浒传》</td>
+                        <td>施耐庵</td>
+                        <td>69.00元</td>
+                        <td>提前到打九折</td>
+                    </tr>
+                    <tr>
+                        <td>《时间简史》</td>
+                        <td>霍金</td>
+                        <td>52.00元</td>
+                        <td>满200减30</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="jieri">
+                <h1>节日特场</h1>
+                <table>
+                    <tr>
+                        <th>春天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>夏天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>秋天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>冬天</th>
+                        <th colspan="2">代表书籍</th>
+                    </tr>
+                    <tr>
+                        <td>汪曾祺</td>
+                        <td colspan="2">《生活是很好玩的》</td>
+                        <td>洛伊丝·劳里</td>
+                        <td colspan="2">《最后的夏天》</td>
+                        <td>史铁生</td>
+                        <td colspan="2">《秋天的怀念》</td>
+                        <td>沈复</td>
+                        <td colspan="2">《浮生六记》</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 右侧栏 - 促销信息 -->
+        <div class="right-bar">
+            <h3>促销活动</h3>
+            <div class="promo-item">
+                <p>限时折扣：全场图书满100减30</p >
+                <p>活动时间：2025-10-20起</p >
+            </div>
+            <div class="promo-item">
+                <p>新客福利：首次下单享8折优惠</p >
+                <p>下单即可</p >
+            </div>
+            <div class="promo-item">
+                <p>满赠活动：满200赠定制书签套装</p >
+                <p>赠品有限，先到先得</p >
+            </div>
+            <div class="promo-item">
+                <p>会员专享：积分兑换精美图书</p >
+                <p>积分越多，优惠越多</p >
+            </div>
+        </div>
+    </div>
+</body>
+</html>
