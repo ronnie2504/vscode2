@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>鲁东大学图书商城</title>
+<link rel="stylesheet" href="./3.css">
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.header{
+    width: 100%;
+    height: 80px;
+    background-color: #2c3e50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 0 20px;
+    border-bottom: 3px solid #e74c3c;
+}
+.logo{
+    width: 280px;
+    height: 80px;
+    line-height: 80px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    float: left;
+}
+.nav{
+    float: right;
+}
+.nav li{
+    float: left;
+    line-height: 80px;
+    margin-left: 30px;
+}
+.nav li a{
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.nav li a:hover{
+    color: #e74c3c;
+}
+.container{
+    width: 1200px;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+.left{
+    width: 200px;
+    min-height: 600px;
+    background: #f5f5f5;
+    float: left;
+    position: relative;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+}
+.left h3{
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #999;
+}
+.left .cate li{
+    line-height: 36px;
+    cursor: pointer;
+}
+.left .cate li:hover{
+    color: #e74c3c;
+    padding-left: 5px;
+}
+.middle{
+    width: 760px;
+    min-height: 600px;
+    float: left;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+}
+.middle > .top-title{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+.middle h3{
+    margin: 20px 0 10px;
+}
+.book-item{
+    width: 150px;
+    height: 200px;
+    border: 1px solid #eee;
+    float: left;
+    margin: 0 12px 25px 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.book-item img{
+    width: 100%;
+    height: 100%;
+}
+.book-mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 200px;
+    color: #fff;
+    display: none;
+}
+.book-item:hover .book-mask{
+    display: block;
+}
+.hot-list li{
+    width: 180px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+}
+table th,td{
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+.right{
+    width: 200px;
+    min-height: 600px;
+    background: #ffeaa7;
+    border: 1px solid #fdcb6e;
+    padding: 15px;
+    float: left;
+}
+.mask-bg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+.login-box{
+    width: 400px;
+    height: 320px;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    margin: 150px auto;
+    padding: 30px;
+}
+.close-btn{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+.close-btn:hover{
+    color: red;
+}
+.login-form{
+    display: block;
+}
+.reg-form{
+    display: none;
+}
+h4{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+input{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button{
+    width: 100%;
+    height: 40px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.tip{
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #3498db;
+}
+.tip:hover{
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="logo">鲁东大学图书商城</div>
+    <ul class="nav">
+        <li><a>首页</a></li>
+        <li><a>图书分类</a></li>
+        <li><a>新书上架</a></li>
+        <li><a id="loginBtn">登录/注册</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="left">
+        <h3>图书分类</h3>
+        <ul class="cate">
+            <li>📚 文学小说</li>
+            <li>📖 经济管理</li>
+            <li>📕 计算机科技</li>
+            <li>📗 考试考证</li>
+            <li>📘 少儿读物</li>
+            <li>📙 历史人文</li>
+        </ul>
+    </div>
+    <div class="middle">
+        <div class="top-title">图书展示区</div>
+        <h3>精选图书</h3>
+        <div class="book-item">
+            <img src="./2b6a68f9455f98.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./6aae2ee1da43daabdc0149d000cda60a~tplv-be4g95zd3a-image.jpeg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./766f7c8e0ad0a8.webp">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./9dcc308141553.png">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./a256b699521048.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./a4f11de7c4ce59829d99e5b4884ff5b6~tplv-be4g95zd3a-image.jpeg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./d1b048ffd57a88.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./e127ba68edc66.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div style="clear:both;"></div>
+
+        <h3>新书上市</h3>
+        <table>
+            <tr>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>平凡的世界</td>
+                <td>路遥</td>
+                <td>¥49.9</td>
+            </tr>
+            <tr>
+                <td>人生</td>
+                <td>路遥</td>
+                <td>¥39.9</td>
+            </tr>
+            <tr>
+                <td>三国演义</td>
+                <td>罗贯中</td>
+                <td>¥59.9</td>
+            </tr>
+            <tr>
+                <td>西游记</td>
+                <td>吴承恩</td>
+                <td>¥45.9</td>
+            </tr>
+        </table>
+
+        <h3>热门推荐</h3>
+        <ul class="hot-list">
+            <li>人间草木</li>
+            <li>三体全集</li>
+            <li>平凡的世界</li>
+        </ul>
+    </div>
+    <div class="right">
+        <h3>限时促销</h3>
+        <p>全场图书满99减30</p>
+        <p>教辅书籍第二本半价</p>
+        <p>活动截止：本月月底</p>
+    </div>
+</div>
+<div class="mask-bg" id="mask">
+    <div class="login-box">
+        <span class="close-btn" id="closeBtn">×</span>
+        <div class="login-form" id="loginForm">
+            <h4>用户登录</h4>
+            <input type="text" id="loginUser" placeholder="请输入用户名">
+            <input type="password" id="loginPwd" placeholder="请输入密码">
+            <button id="loginSubmit">登录</button>
+            <div class="tip" id="toReg">没有账号？去注册</div>
+        </div>
+        <div class="reg-form" id="regForm">
+            <h4>用户注册</h4>
+            <input type="text" id="regUser" placeholder="请设置用户名">
+            <input type="password" id="regPwd" placeholder="请设置密码">
+            <button id="regSubmit">立即注册</button>
+            <div class="tip" id="toLogin">已有账号？去登录</div>
+        </div>
+    </div>
+</div>
+<script>
+let loginBtn=document.getElementById('loginBtn');
+let mask=document.getElementById('mask');
+let closeBtn=document.getElementById('closeBtn');
+let loginForm=document.getElementById('loginForm');
+let regForm=document.getElementById('regForm');
+let toReg=document.getElementById('toReg');
+let toLogin=document.getElementById('toLogin');
+loginBtn.onclick=function(){
+    mask.style.display='block';
+}
+closeBtn.onclick=function(){
+    mask.style.display='none';
+}
+toReg.onclick=function(){
+    loginForm.style.display='none';
+    regForm.style.display='block';
+}
+toLogin.onclick=function(){
+    regForm.style.display='none';
+    loginForm.style.display='block';
+}
+document.getElementById('regSubmit').onclick=function(){
+    let username=document.getElementById('regUser').value.trim();
+    let pwd=document.getElementById('regPwd').value.trim();
+    if(username===''||pwd===''){
+        alert('用户名和密码不能为空！');
+        return;
+    }
+    let userObj={user:username,pwd:pwd};
+    localStorage.setItem('userInfo',JSON.stringify(userObj));
+    alert('注册成功！请登录');
+    regForm.style.display='none';
+    loginForm.style.display='block';
+    document.getElementById('regUser').value='';
+    document.getElementById('regPwd').value='';
+}
+document.getElementById('loginSubmit').onclick=function(){
+    let loginUser=document.getElementById('loginUser').value.trim();
+    let loginPwd=document.getElementById('loginPwd').value.trim();
+    if(loginUser===''||loginPwd===''){
+        alert('请输入账号密码！');
+        return;
+    }
+    let localUser=localStorage.getItem('userInfo');
+    if(!localUser){
+        alert('暂无注册账号，请先注册！');
+        return;
+    }
+    let user=JSON.parse(localUser);
+    if(loginUser===user.user&&loginPwd===user.pwd){
+        alert('登录成功！');
+        mask.style.display='none';
+    }else{
+        alert('用户名或密码错误！');
+    }
+}
+</script>
+</body>
+</html>
