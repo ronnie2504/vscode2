@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>鲁东大学图书商城</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="./4.css">
+</head>
+<body>
+<div class="header">
+    <div class="logo">鲁东大学图书商城</div>
+    <ul class="nav">
+        <li><a>首页</a></li>
+        <li><a>图书分类</a></li>
+        <li><a>新书上架</a></li>
+        <!-- 专业图标 替换原来的emoji -->
+        <li><a><i class="fa-solid fa-cart-shopping icon-item"></i> 购物车</a></li>
+        <li><a><i class="fa-solid fa-search icon-item"></i> 搜索</a></li>
+        <li><a id="loginBtn">登录/注册</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="left">
+        <h3>图书分类</h3>
+        <ul class="cate">
+            <li>📚 文学小说</li>
+            <li>📖 经济管理</li>
+            <li>📕 计算机科技</li>
+            <li>📗 考试考证</li>
+            <li>📘 少儿读物</li>
+            <li>📙 历史人文</li>
+        </ul>
+    </div>
+
+    <div class="middle">
+        <div class="top-title">图书展示区</div>
+
+        <!-- 轮播图：三张图片 从下向上轮播 -->
+        <div class="swiper">
+          <div class="swiper-item" style="background-image:url('./2b6a68f9455f98.jpg')"></div>
+          <div class="swiper-item" style="background-image:url('./766f7c8e0ad0a8.webp')"></div>
+          <div class="swiper-item" style="background-image:url('./a256b699521048.jpg')"></div>
+        </div>
+
+        <h3>精选图书</h3>
+        <div class="book-item">
+            <img src="./2b6a68f9455f98.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./6aae2ee1da43daabdc0149d000cda60a~tplv-be4g95zd3a-image.jpeg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./766f7c8e0ad0a8.webp">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./9dcc308141553.png">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./a256b699521048.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./a4f11de7c4ce59829d99e5b4884ff5b6~tplv-be4g95zd3a-image.jpeg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./d1b048ffd57a88.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div class="book-item">
+            <img src="./e127ba68edc66.jpg">
+            <div class="book-mask">立即购买</div>
+        </div>
+        <div style="clear:both;"></div>
+
+        <h3>新书上市</h3>
+        <table>
+            <tr>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>平凡的世界</td>
+                <td>路遥</td>
+                <td>¥49.9</td>
+            </tr>
+            <tr>
+                <td>人生</td>
+                <td>路遥</td>
+                <td>¥39.9</td>
+            </tr>
+            <tr>
+                <td>三国演义</td>
+                <td>罗贯中</td>
+                <td>¥59.9</td>
+            </tr>
+            <tr>
+                <td>西游记</td>
+                <td>吴承恩</td>
+                <td>¥45.9</td>
+            </tr>
+        </table>
+
+        <h3>热门推荐</h3>
+        <ul class="hot-list">
+            <li>人间草木</li>
+            <li>三体全集</li>
+            <li>平凡的世界</li>
+        </ul>
+    </div>
+
+    <div class="right">
+        <h3>限时促销</h3>
+        <p>全场图书满99减30</p>
+        <p>教辅书籍第二本半价</p>
+        <p>活动截止：本月月底</p>
+    </div>
+</div>
+
+<!-- 登录弹窗 -->
+<div class="mask-bg" id="mask">
+    <div class="login-box">
+        <span class="close-btn" id="closeBtn">×</span>
+        <div class="login-form" id="loginForm">
+            <h4>用户登录</h4>
+            <input type="text" id="loginUser" placeholder="请输入用户名">
+            <input type="password" id="loginPwd" placeholder="请输入密码">
+            <button id="loginSubmit">登录</button>
+            <div class="tip" id="toReg">没有账号？去注册</div>
+        </div>
+        <div class="reg-form" id="regForm">
+            <h4>用户注册</h4>
+            <input type="text" id="regUser" placeholder="请设置用户名">
+            <input type="password" id="regPwd" placeholder="请设置密码">
+            <button id="regSubmit">立即注册</button>
+            <div class="tip" id="toLogin">已有账号？去登录</div>
+        </div>
+    </div>
+</div>
+
+<script>
+let loginBtn=document.getElementById('loginBtn');
+let mask=document.getElementById('mask');
+let closeBtn=document.getElementById('closeBtn');
+let loginForm=document.getElementById('loginForm');
+let regForm=document.getElementById('regForm');
+let toReg=document.getElementById('toReg');
+let toLogin=document.getElementById('toLogin');
+
+loginBtn.onclick=function(){
+    mask.style.display='block';
+}
+closeBtn.onclick=function(){
+    mask.style.display='none';
+}
+toReg.onclick=function(){
+    loginForm.style.display='none';
+    regForm.style.display='block';
+}
+toLogin.onclick=function(){
+    regForm.style.display='none';
+    loginForm.style.display='block';
+}
+
+// 注册
+document.getElementById('regSubmit').onclick=function(){
+    let username=document.getElementById('regUser').value.trim();
+    let pwd=document.getElementById('regPwd').value.trim();
+    if(username===''||pwd===''){
+        alert('用户名和密码不能为空！');
+        return;
+    }
+    let userObj={user:username,pwd:pwd};
+    localStorage.setItem('userInfo',JSON.stringify(userObj));
+    alert('注册成功！请登录');
+    regForm.style.display='none';
+    loginForm.style.display='block';
+    document.getElementById('regUser').value='';
+    document.getElementById('regPwd').value='';
+}
+
+// 登录
+document.getElementById('loginSubmit').onclick=function(){
+    let loginUser=document.getElementById('loginUser').value.trim();
+    let loginPwd=document.getElementById('loginPwd').value.trim();
+    if(loginUser===''||loginPwd===''){
+        alert('请输入账号密码！');
+        return;
+    }
+    let localUser=localStorage.getItem('userInfo');
+    if(!localUser){
+        alert('暂无注册账号，请先注册！');
+        return;
+    }
+    let user=JSON.parse(localUser);
+    if(loginUser===user.user&&loginPwd===user.pwd){
+        alert('登录成功！');
+        mask.style.display='none';
+    }else{
+        alert('用户名或密码错误！');
+    }
+}
+</script>
+</body>
+</html>

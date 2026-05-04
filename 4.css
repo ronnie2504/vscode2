@@ -1,0 +1,294 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* 头部 */
+.header{
+    width: 100%;
+    height: 80px;
+    background-color: #2c3e50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 0 20px;
+    border-bottom: 3px solid #e74c3c;
+}
+.logo{
+    width: 280px;
+    height: 80px;
+    line-height: 80px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    float: left;
+}
+.nav{
+    float: right;
+}
+.nav li{
+    float: left;
+    line-height: 80px;
+    margin-left: 30px;
+}
+.nav li a{
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    /* 让图标和文字垂直居中 */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav li a:hover{
+    color: #e74c3c;
+}
+
+/* 购物车、搜索图标 悬停旋转 */
+.icon-item {
+  display: inline-block;
+  transition: transform 0.4s ease;
+  font-size: 18px;
+  margin: 0 2px;
+}
+.icon-item:hover {
+  transform: rotate(360deg);
+  color: #e74c3c;
+}
+
+/* 登录按钮 悬停动画 */
+#loginBtn {
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+#loginBtn:hover {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  transform: scale(1.1);
+}
+
+/* 布局容器 */
+.container{
+    width: 1200px;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+.left{
+    width: 200px;
+    min-height: 600px;
+    background: #f5f5f5;
+    float: left;
+    position: relative;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+}
+.left h3{
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #999;
+}
+.left .cate li{
+    line-height: 36px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.left .cate li:hover{
+    color: #e74c3c;
+    padding-left: 5px;
+}
+
+/* 中间内容 */
+.middle{
+    width: 760px;
+    min-height: 600px;
+    float: left;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+}
+.middle > .top-title{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+.middle h3{
+    margin: 20px 0 10px;
+}
+
+/* 轮播图 从下向上切换 */
+.swiper {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+.swiper-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  animation: slideUp 9s infinite;
+}
+.swiper-item:nth-child(1) { animation-delay: 0s; }
+.swiper-item:nth-child(2) { animation-delay: 3s; opacity:0; }
+.swiper-item:nth-child(3) { animation-delay: 6s; opacity:0; }
+
+@keyframes slideUp {
+  0% { transform: translateY(100%); opacity:0; }
+  10% { transform: translateY(0); opacity:1; }
+  33% { transform: translateY(0); opacity:1; }
+  43% { transform: translateY(-100%); opacity:0; }
+  100% { transform: translateY(-100%); opacity:0; }
+}
+
+/* 图书卡片 悬停动画：右移+放大+阴影 */
+.book-item{
+    width: 150px;
+    height: 200px;
+    border: 1px solid #eee;
+    float: left;
+    margin: 0 12px 25px 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.book-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.book-mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 200px;
+    color: #fff;
+    display: none;
+}
+.book-item:hover {
+  transform: translateX(8px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+.book-item:hover .book-mask{
+    display: block;
+}
+
+.hot-list li{
+    width: 180px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+}
+table th,td{
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+.right{
+    width: 200px;
+    min-height: 600px;
+    background: #ffeaa7;
+    border: 1px solid #fdcb6e;
+    padding: 15px;
+    float: left;
+}
+
+/* 登录弹窗 */
+.mask-bg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+.login-box{
+    width: 400px;
+    height: 320px;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    margin: 150px auto;
+    padding: 30px;
+}
+.close-btn{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+.close-btn:hover{
+    color: red;
+}
+.login-form{
+    display: block;
+}
+.reg-form{
+    display: none;
+}
+h4{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+input{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button{
+    width: 100%;
+    height: 40px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+button:hover{
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  transform: scale(1.03);
+}
+.tip{
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #3498db;
+}
+.tip:hover{
+    text-decoration: underline;
+}
